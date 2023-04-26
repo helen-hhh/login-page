@@ -41,6 +41,7 @@ function loginPageBack() {
     transform: translate(-50%, -50%);
     border-radius: 20px;
     padding: 35px 60px 45px 60px;
+    box-shadow: 4px 4px 12px rgba(15, 15, 17, 0.3);
 }
 
 .passwordHeading {

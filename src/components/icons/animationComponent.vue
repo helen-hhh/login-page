@@ -1,11 +1,5 @@
 <script setup lang="ts">
 import forestLine from './forestLine.vue';
-
-
-//40 Kreise in Begrenzung
-for (let i = 0; i < 40; i++) {
-
-};
 </script>
 
 <template>

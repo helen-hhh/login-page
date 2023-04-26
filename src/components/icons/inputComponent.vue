@@ -39,6 +39,9 @@ const focusLeft = () => {
             autocomplete="email" :rules="[emailValidation]" v-model="email" v-on:focusout="focusLeft" persistent-hint
             :hint="showError ? 'Ungültige E-Mail Adresse' : ''" :append-inner-icon="showError ? warnIcon : ''"
             :error="showError">
+            <template v-slot:clear-icon>
+                <closeIcon></closeIcon>
+            </template>
         </v-text-field>
     </div>
 </template>

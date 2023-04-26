@@ -2,6 +2,7 @@
 import loginArrow from './loginArrow.vue';
 import inputComponent from './inputComponent.vue'
 import passwordComponent from './passwordComponent.vue';
+import { ref } from 'vue';
 
 const props = defineProps(["passwordreset"])
 const emit = defineEmits(["update:passwordreset"])
@@ -9,6 +10,10 @@ const emit = defineEmits(["update:passwordreset"])
 function setPasswordReset() {
     emit("update:passwordreset", true);
 }
+
+const password = ref("");
+
+let wrong = ref(false)
 </script>
 
 <template>
@@ -17,7 +22,7 @@ function setPasswordReset() {
         <p class="explain">Bitte gib deine E-Mail Adresse und dein <br> Passwort ein, um dich anzumelden.</p>
         <inputComponent></inputComponent>
         <passwordComponent></passwordComponent>
-        <p @click="setPasswordReset()" class="forgotPassword">Passwort vergessen?</p>
+        <p class="forgotPassword"><span class="forgot" @click="setPasswordReset()">Passwort vergessen?</span></p>
         <button class="loginButton">
             <div class="buttonContent">
                 <span class="loginText">Anmelden</span>
@@ -57,6 +62,10 @@ function setPasswordReset() {
     font-size: 15px;
 }
 
+.forgot {
+    cursor: pointer;
+}
+
 .forgotPassword {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
@@ -65,7 +74,6 @@ function setPasswordReset() {
     text-align: right;
     margin-right: 14px;
     color: #0F0F11;
-    cursor: pointer;
 }
 
 .loginButton {

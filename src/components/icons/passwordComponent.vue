@@ -2,21 +2,19 @@
 import showIcon from './showIcon.vue';
 import { ref } from 'vue';
 import hideIcon from './hideIcon.vue'
-const passwordFieldType = ref('password');
+const showPassword = ref(false);
 
-function togglePasswordVisibility() {
-    console.log("öizc");
-    passwordFieldType.value = passwordFieldType.value === 'password' ? 'text' : 'password';
-
-}
 </script>
 
 <template>
     <div class="passwordInput">
-        <v-text-field ref="passwordField" label="Password" type="password" variant="outlined" hint="www.example.com/page"
+        <v-text-field ref="passwordField" label="Password" :type="showPassword ? 'text' : 'password'" variant="outlined"
             color='#0f0f11' name="input-10-1" autocomplete="current-password">
             <template v-slot:append-inner>
-                <showIcon @click="togglePasswordVisibility"></showIcon>
+                <div @click="showPassword = !showPassword">
+                    <showIcon v-if="!showPassword"></showIcon>
+                    <hideIcon v-else></hideIcon>
+                </div>
             </template>
         </v-text-field>
     </div>

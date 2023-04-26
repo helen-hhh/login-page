@@ -1,18 +1,17 @@
 <script setup lang="ts">
 import forestLine from './forestLine.vue';
+import Circle from "../Circle.vue"
 </script>
 
 <template>
     <forestLine></forestLine>
-    <div class="circle"></div>
+    <Circle left="24rem" top="10rem"></Circle>
+    <Circle left="18rem" top="20rem"></Circle>
+    <Circle left="73rem" top="14rem"></Circle>
+    <Circle left="81rem" top="10rem"></Circle>
+    <Circle left="45rem" top="34rem"></Circle>
+    <Circle left="13rem" top="21rem"></Circle>
+    <Circle left="74rem" top="41rem"></Circle>
 </template>
 
-<style scoped>
-.circle {
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    background-color: #E0B3DF;
-    animation-timing-function: ease-in-out;
-}
-</style>
+<style scoped></style>

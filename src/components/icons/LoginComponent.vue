@@ -3,12 +3,16 @@ import loginArrow from './loginArrow.vue';
 import inputComponent from './inputComponent.vue'
 import passwordComponent from './passwordComponent.vue';
 import { ref } from 'vue';
+import { useFormStateStore } from '@/stores/formState';
+
+const store = useFormStateStore();
 
 const props = defineProps(["passwordreset"])
 const emit = defineEmits(["update:passwordreset"])
 
 function setPasswordReset() {
     emit("update:passwordreset", true);
+    store.setState(1);
 }
 
 const password = ref("");

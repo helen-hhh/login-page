@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import backArrow from './backArrow.vue';
 import inputComponent from './inputComponent.vue'
+import { useFormStateStore } from '@/stores/formState';
+
+const store = useFormStateStore();
 
 const props = defineProps(["sendToMail", "backtologin"])
 const emit = defineEmits(["update:sendToMail", "update:backtologin"])
@@ -11,6 +14,7 @@ function setMail() {
 
 function loginPageBack() {
     emit("update:backtologin", false)
+    store.setState(0);
 }
 
 </script>

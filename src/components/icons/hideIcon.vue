@@ -9,3 +9,9 @@
         <circle cx="10" cy="10" r="4" fill="#0F0F11" stroke="#0F0F11" stroke-width="2" />
     </svg>
 </template>
+
+<style scoped>
+svg {
+    cursor: pointer;
+}
+</style>

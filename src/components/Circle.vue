@@ -9,7 +9,7 @@ console.log(props.left, props.top)
 
 <style scoped>
 .circle {
-    position: relative;
+    position: absolute;
     width: 25px;
     height: 25px;
     border-radius: 100%;

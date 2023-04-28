@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import forestLine from './forestLine.vue';
-import Circle from "../Circle.vue"
+import forestLine from './icons/forestLine.vue';
+import Circle from "./Circle.vue"
 </script>
 
 <template>

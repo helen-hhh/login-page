@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import showIcon from './showIcon.vue';
+import showIcon from './icons/showIcon.vue';
 import { ref } from 'vue';
-import hideIcon from './hideIcon.vue'
+import hideIcon from './icons/hideIcon.vue'
 const showPassword = ref(false);
 
 </script>

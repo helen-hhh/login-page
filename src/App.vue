@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import NadarLogo from './components/icons/NadarLogo.vue';
-import LoginComponent from './components/icons/LoginComponent.vue';
-import ResetPasswordComponent from './components/icons/ResetPasswordComponent.vue';
-import MailComponent from './components/icons/MailComponent.vue';
-import animationComponent from './components/icons/animationComponent.vue';
+import LoginComponent from './components/LoginComponent.vue';
+import ResetPasswordComponent from './components/ResetPasswordComponent.vue';
+import MailComponent from './components/MailComponent.vue';
+import AnimationComponent from './components/AnimationComponent.vue';
 import { ref } from 'vue';
 
 let passwordreset = ref(false);
@@ -13,7 +13,7 @@ let mail = ref(false);
 <template>
   <div class="container">
     <NadarLogo></NadarLogo>
-    <animationComponent></animationComponent>
+    <AnimationComponent></AnimationComponent>
     <LoginComponent v-if="!passwordreset" v-model:passwordreset="passwordreset"></LoginComponent>
     <ResetPasswordComponent v-else-if="!mail" v-model:sendToMail="mail" v-model:backtologin="passwordreset">
     </ResetPasswordComponent>

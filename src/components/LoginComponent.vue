@@ -1,43 +1,44 @@
 <script setup lang="ts">
-import backArrow from './backArrow.vue';
+import loginArrow from './icons/loginArrow.vue';
 import inputComponent from './inputComponent.vue'
+import passwordComponent from './passwordComponent.vue';
+import { ref } from 'vue';
 import { useBackgroundStore } from '@/stores/formState';
+import { triggerRef } from 'vue';
 
 const store = useBackgroundStore();
 
-const props = defineProps(["sendToMail", "backtologin"])
-const emit = defineEmits(["update:sendToMail", "update:backtologin"])
+const props = defineProps(["passwordreset"])
+const emit = defineEmits(["update:passwordreset"])
 
-function setMail() {
-    emit("update:sendToMail", true);
-    store.setState(false);
+function setPasswordReset() {
+    emit("update:passwordreset", true);
+    store.setState(true);
 }
 
-function loginPageBack() {
-    emit("update:backtologin", false)
-    store.setState(false);
-}
+const password = ref("");
 
+let wrong = ref(false)
 </script>
 
 <template>
-    <div class="containerReset">
-        <h1 class="passwordHeading">Passwort <br> zurücksetzen</h1>
+    <div class="containerLogin">
+        <h1 class="loginHeading">Login</h1>
+        <p class="explain">Bitte gib deine E-Mail Adresse und dein <br> Passwort ein, um dich anzumelden.</p>
         <inputComponent></inputComponent>
-        <button @click="setMail()" class="resetButton">
-            <div class="buttonReset">
-                <span class="resetText">E-Mail zum Zurücksetzen senden</span>
+        <passwordComponent></passwordComponent>
+        <p class="forgotPassword"><span class="forgot" @click="setPasswordReset()">Passwort vergessen?</span></p>
+        <button class="loginButton">
+            <div class="buttonContent">
+                <span class="loginText">Anmelden</span>
+                <loginArrow></loginArrow>
             </div>
         </button>
-        <div @click="loginPageBack()" class="backContainer">
-            <backArrow></backArrow>
-            <p class="back">Zurück zum Login</p>
-        </div>
     </div>
 </template>
 
 <style scoped>
-.containerReset {
+.containerLogin {
     background-color: white;
     width: fit-content;
     position: fixed;
@@ -49,7 +50,7 @@ function loginPageBack() {
     box-shadow: 4px 4px 12px rgba(15, 15, 17, 0.3);
 }
 
-.passwordHeading {
+.loginHeading {
     font-family: 'Rubik', sans-serif;
     font-weight: 600;
     font-size: 45px;
@@ -66,26 +67,21 @@ function loginPageBack() {
     font-size: 15px;
 }
 
-.backContainer {
-    width: 350px;
-    display: flex;
-    margin-top: 15px;
+.forgot {
+    cursor: pointer;
 }
 
-.back {
+.forgotPassword {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 12px;
     text-decoration: underline;
+    text-align: right;
+    margin-right: 14px;
     color: #0F0F11;
-    text-align: center;
-    margin-right: 36%;
-    display: inline-block;
-    white-space: nowrap;
-    cursor: pointer;
 }
 
-.resetButton {
+.loginButton {
     background-color: #877EF7;
     border-radius: 35px;
     width: 100%;
@@ -95,17 +91,18 @@ function loginPageBack() {
     margin-top: 28px;
 }
 
-.buttonReset {
+.buttonContent {
     display: flex;
     justify-content: center;
     text-align: center;
 }
 
-.resetText {
+.loginText {
     color: white;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 15px;
+    margin-left: 37%;
 }
 </style>

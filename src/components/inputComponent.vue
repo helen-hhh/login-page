@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import closeIcon from './closeIcon.vue';
-import warnIcon from './warnIcon.vue'
+import closeIcon from './icons/closeIcon.vue';
+import warnIcon from './icons/warnIcon.vue'
 import { ref, computed } from "vue";
 const email = ref("");
 const emailHint = ref("");

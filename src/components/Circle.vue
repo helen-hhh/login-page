@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useFormStateStore } from "../stores/formState"
+import { useBackgroundStore } from "../stores/formState"
 
-const store = useFormStateStore();
+const store = useBackgroundStore();
 
 const props = defineProps(["left", "top", "newTop", "newLeft"]);
 </script>
 
 <template>
     <div class="circle"
-        :style="{ 'top': store.state === 1 ? props.newTop : props.top, 'left': store.state === 1 ? props.newLeft : props.left }">
+        :style="{ 'top': store.state ? props.newTop : props.top, 'left': store.state ? props.newLeft : props.left }">
     </div>
 </template>
 

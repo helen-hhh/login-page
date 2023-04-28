@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import backArrow from './backArrow.vue';
 import mailIcon from './mailIcon.vue';
+import { useBackgroundStore } from '@/stores/formState';
+
+const store = useBackgroundStore();
 
 const props = defineProps(["backtologin", "backmail", "backtopassword"])
 const emit = defineEmits(["update:backtologin", "update:backmail", "update:backtopassword"])
@@ -12,6 +15,7 @@ function loginPageBack() {
 
 function backPassword() {
     emit("update:backtopassword", false);
+    store.setState(true);
 }
 </script>
 

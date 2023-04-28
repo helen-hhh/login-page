@@ -1,20 +1,21 @@
 <script setup lang="ts">
 import backArrow from './backArrow.vue';
 import inputComponent from './inputComponent.vue'
-import { useFormStateStore } from '@/stores/formState';
+import { useBackgroundStore } from '@/stores/formState';
 
-const store = useFormStateStore();
+const store = useBackgroundStore();
 
 const props = defineProps(["sendToMail", "backtologin"])
 const emit = defineEmits(["update:sendToMail", "update:backtologin"])
 
 function setMail() {
     emit("update:sendToMail", true);
+    store.setState(false);
 }
 
 function loginPageBack() {
     emit("update:backtologin", false)
-    store.setState(0);
+    store.setState(false);
 }
 
 </script>

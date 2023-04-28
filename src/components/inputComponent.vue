@@ -35,9 +35,9 @@ const focusLeft = () => {
 
 <template>
     <div class="emailInput">
-        <v-text-field clearable type="email" v-bind:clear-icon="closeIcon" label=" E-Mail" variant="outlined"
-            color='#0f0f11' base-color="#f00" autocomplete="email" :rules="[emailValidation]" v-model="email"
-            v-on:focusout="focusLeft" persistent-hint :hint="showError ? 'Ungültige E-Mail Adresse' : ''"
+        <v-text-field class="text-black" clearable type="email" v-bind:clear-icon="closeIcon" label=" E-Mail"
+            variant="outlined" color='#0f0f11' base-color="#f00" autocomplete="email" :rules="[emailValidation]"
+            v-model="email" v-on:focusout="focusLeft" persistent-hint :hint="showError ? 'Ungültige E-Mail Adresse' : ''"
             :append-inner-icon="showError ? warnIcon : ''" :error="showError">
             <template v-slot:clear-icon>
                 <closeIcon></closeIcon>
@@ -49,5 +49,9 @@ const focusLeft = () => {
 <style scoped>
 .emailInput {
     margin-top: 40px;
+}
+
+.text-black input {
+    color: #0f0f11 !important;
 }
 </style>
